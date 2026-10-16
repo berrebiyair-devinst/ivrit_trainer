@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ivrit Trainer</title>
+    <link rel="stylesheet" href="/style.css">
+    <script src="/script.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Ivrit Trainer</h1>
+        <p>Your personal Hebrew vocabulary trainer</p>
+    </header>
+
+    <main>
+        <section>
+            <h2>Add a word</h2>
+
+            <form id="word-form">
+                <label for="hebrew">Hebrew word</label>
+                <input
+                    id="hebrew"
+                    name="hebrew"
+                    type="text"
+                    lang="he"
+                    dir="rtl"
+                    maxlength="100"
+                    required
+                >
+
+                <label for="english">English translation</label>
+                <input
+                    id="english"
+                    name="english"
+                    type="text"
+                    maxlength="150"
+                    required
+                >
+
+                <button type="submit">Add word</button>
+            </form>
+
+            <p id="message" role="status"></p>
+        </section>
+
+        <section>
+            <h2>My words</h2>
+            <div id="words-list"></div>
+        </section>
+        <section id="quiz-section">
+    <h2>Practice your Hebrew</h2>
+    <p>Choose the correct English translation for each word.</p>
+
+    <button id="start-quiz" type="button">Start quiz</button>
+
+    <div id="quiz-area" hidden>
+        <p id="quiz-progress"></p>
+        <h3 id="quiz-word" lang="he" dir="rtl"></h3>
+
+        <div id="quiz-options"></div>
+
+        <p id="quiz-feedback" role="status"></p>
+
+        <button id="next-question" type="button" hidden>
+            Next question
+        </button>
+    </div>
+
+    <p id="quiz-result" role="status"></p>
+</section>
+    </main>
+</body>
+</html>
