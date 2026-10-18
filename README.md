@@ -74,6 +74,6 @@ For now, this is a single shared vocabulary list without user accounts.
 
 ## Demo
 
-Video link: coming soon
+Video link: https://www.loom.com/share/99469f3d3221405d85c0a79298eed8f3
 
 Made by Yair Berrebi
