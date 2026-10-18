@@ -15,6 +15,12 @@
 
     <main>
         <section>
+            <label for="category">Category</label>
+<select id="category" name="category">
+    <option value="Daily life">Daily life</option>
+    <option value="Army">Army</option>
+    <option value="Work">Work</option>
+</select>
             <h2>Add a word</h2>
 
             <form id="word-form">
@@ -51,7 +57,13 @@
         <section id="quiz-section">
     <h2>Practice your Hebrew</h2>
     <p>Choose the correct English translation for each word.</p>
-
+    <label for="quiz-category">Practice category</label>
+<select id="quiz-category">
+    <option value="All">All categories</option>
+    <option value="Daily life">Daily life</option>
+    <option value="Army">Army</option>
+    <option value="Work">Work</option>
+</select>
     <button id="start-quiz" type="button">Start quiz</button>
 
     <div id="quiz-area" hidden>

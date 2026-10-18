@@ -1,32 +1,36 @@
 # Ivrit Trainer
 
-A Hebrew vocabulary app built for the Developers Institute hackathon.
+My second hackathon project at Developers Institute.
 
-Users can save Hebrew words with English translations and practise through multiple-choice quizzes.
+I'm learning Hebrew myself, so I wanted to build something I could actually use to practise vocabulary.
 
-## Author
+The idea is simple: save Hebrew words with their English translations, then practise them in a quiz.
 
-Yair Berrebi — solo project.
+## What you can do
 
-## Features
+- Add your own words
+- Edit or delete them
+- Choose a category: Daily life, Army or Work
+- Take a quiz with all words or just one category
+- See your score and the correct answers
+- See how many times you got each word right or wrong
 
-- Add, view, edit and delete vocabulary.
-- Store vocabulary in PostgreSQL.
-- Practise with up to 10 randomly selected questions.
-- Get immediate answer feedback and a final score.
+The words and the correct/wrong answer counters are saved in PostgreSQL, so they stay after refreshing the page.
 
-A quiz requires at least four different English translations.
-Quiz scores are currently kept only in the browser during the quiz.
+The final quiz score is only shown for the current quiz.
 
-## Technologies
+## Built with
 
-HTML, CSS, JavaScript, Node.js, Express, PostgreSQL, Knex and dotenv.
+HTML, CSS and JavaScript for the page.
 
-## Run locally
+Node.js and Express for the server, PostgreSQL for the database.
+I used Knex for database queries and dotenv for the connection settings.
 
-### 1. Install dependencies
+## How to run it
 
-Install Node.js and PostgreSQL, then run:
+You need Node.js and PostgreSQL installed.
+
+Clone the project and install the packages:
 
 ```bash
 git clone https://github.com/berrebiyair-devinst/ivrit_trainer.git
@@ -34,44 +38,42 @@ cd ivrit_trainer
 npm install
 ```
 
-### 2. Set up the database
+In pgAdmin, create a database called `ivrit_trainer`.
+Open its Query Tool and run the file `database/setup.sql`.
 
-In pgAdmin:
+Then copy `.env.example` to a new file called `.env` and put your own PostgreSQL settings in it.
 
-1. Create a database named `ivrit_trainer`.
-2. Open the Query Tool for that database.
-3. Open `database/setup.sql` and execute it.
+Check the database port too: PostgreSQL usually uses 5432, but my local installation uses 12345.
 
-The script creates the words table and inserts starter vocabulary.
-
-### 3. Configure the connection
-
-Copy `.env.example` to a new file named `.env`.
-
-Update the values with your PostgreSQL connection details.
-The default PostgreSQL port is 5432; change it if your installation uses another port.
-
-Do not commit your `.env` file.
-
-### 4. Start the server
+Start the app:
 
 ```bash
 node server.js
 ```
 
-Open http://localhost:3000 in your browser.
+Then open http://localhost:3001
 
-## API routes
+For the quiz, you need at least 4 different English translations in the database. The setup script adds 5 starter words.
 
-| Method | Route | Purpose |
-| --- | --- | --- |
-| GET | /api/words | Get all words |
-| POST | /api/words | Add a word |
-| PUT | /api/words/:id | Update a word |
-| DELETE | /api/words/:id | Delete a word |
+If you choose a category, the questions come from that category, but the other answer choices can come from the full vocabulary list.
 
-POST and PUT accept JSON containing `hebrew` and `english`.
+## How it works
 
-## Demo video
+The browser sends requests with fetch to the Express server.
+The server reads or updates the words in PostgreSQL using Knex.
 
-To be added before submission.
+For quiz answers, the server checks the selected translation and updates the correct or incorrect counter.
+
+## Things I would add later
+
+- A way to practise only difficult words
+- User accounts so everyone has their own vocabulary
+- Put the app online so I can use it on my phone
+
+For now, this is a single shared vocabulary list without user accounts.
+
+## Demo
+
+Video link: coming soon
+
+Made by Yair Berrebi

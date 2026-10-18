@@ -161,3 +161,17 @@ button:disabled {
         justify-self: start;
     }
 }
+select {
+    width: 100%;
+    padding: 11px;
+    border: 1px solid #a4a893;
+    border-radius: 2px;
+    background: #fffdf7;
+    color: #30342c;
+    font: inherit;
+}
+
+select:focus-visible {
+    outline: 2px solid #596345;
+    outline-offset: 3px;
+}
